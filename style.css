@@ -1,0 +1,53 @@
+html {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  background-image: url("backgroundImage.jpg");
+  background-position: center;
+  background-color: var(--darkGray);
+}
+
+/* colors */
+:root {
+  --darkGray: #1a1a1a;
+  --white: #ffffff;
+  --cream: #f6eedf;
+  --orange: #f57b51;
+  --red: #d63447;
+  --yellow: #ffd31d;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*  */
