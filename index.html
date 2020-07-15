@@ -5,36 +5,152 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link href="style.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap" rel="stylesheet">
   <title>Weather App</title>
 </head>
 <body>
 
 <div id="main-container">
 
-  <div id="temperature">
-    <div id="temperature__city"></div>
-    <div id="temperature__main"></div>
-    <div id="temperature__info"></div>
+  <div id="temperature" class="square">
+
+    <div id="temperature__city">
+      <select id="temperature__city__select">
+        <option value="0">Beograd</option>
+        <option value="1">Kragujevac</option>
+        <option value="2">Novi Sad</option>
+      </select>
+    </div>
+
+    <div id="temperature__big-icon">
+      <img src="icons/sunnyClouds.svg" alt="sunny clouds icon">
+    </div>
+
+    <div id="temperature__big-number">
+      <h1>36°</h1>
+      <button id="celsiusButton">°C</button>
+      <button id="fahrenheitButton">°F</button>
+    </div>
+
+    <div id="temperature__info">
+      <p>
+        maximum temp:<span class="temperature__info__span">23°</span><br>
+        minimum temp:<span class="temperature__info__span">16°</span><br>
+        feels like:<span class="temperature__info__span">22.22°</span><br>
+        humidity:<span class="temperature__info__span">50</span><br>
+        pressure:<span class="temperature__info__span">1006</span><br>
+        wind:<span class="temperature__info__span">32</span><br>
+        deg:<span class="temperature__info__span">27</span><br>
+        speed:<span class="temperature__info__span">5.7</span>
+      </p>
+    </div>
+
     <div id="temperature__days">
-      <div id="temperature__days__day mon"></div>
-      <div id="temperature__days__day tue"></div>
-      <div id="temperature__days__day wed"></div>
-      <div id="temperature__days__day thu"></div>
-      <div id="temperature__days__day fri"></div>
-      <div id="temperature__days__day sat"></div>
-      <div id="temperature__days__day sun"></div>
+
+      <div id="temperature__days_mon">
+        <h3 class="day-name">pon</h3>
+        <img class="day__image" src="icons/sunnyClouds.svg" alt="temperature day icon">
+        <p class="day__temp">32°
+          <span class="day__temp__small">29°</span>
+        </p>
+      </div>
+
+      <div id="temperature__days_tue">
+        <h3 class="day-name">uto</h3>
+        <img class="day__image" src="icons/sunnyClouds.svg" alt="temperature day icon">
+        <p class="day__temp">32°
+          <span class="day__temp__small">29°</span>
+        </p>
+      </div>
+
+      <div id="temperature__days_wed">
+        <h3 class="day-name">sre</h3>
+        <img class="day__image" src="icons/sunnyClouds.svg" alt="temperature day icon">
+        <p class="day__temp">32°
+          <span class="day__temp__small">29°</span>
+        </p>
+      </div>
+
+      <div id="temperature__days_thu">
+        <h3 class="day-name">čet</h3>
+        <img class="day__image" src="icons/sunnyClouds.svg" alt="temperature day icon">
+        <p class="day__temp">32°
+          <span class="day__temp__small">29°</span>
+        </p>
+      </div>
+
+      <div id="temperature__days_fri">
+        <h3 class="day-name">pet</h3>
+        <img class="day__image" src="icons/sunnyClouds.svg" alt="temperature day icon">
+        <p class="day__temp">32°
+          <span class="day__temp__small">29°</span>
+        </p>
+      </div>
+
+      <div id="temperature__days_sat">
+        <h3 class="day-name">sub</h3>
+        <img class="day__image" src="icons/sunnyClouds.svg" alt="temperature day icon">
+        <p class="day__temp">32°
+          <span class="day__temp__small">29°</span>
+        </p>
+      </div>
+
+      <div id="temperature__days_sun">
+        <h3 class="day-name">ned</h3>
+        <img class="day__image" src="icons/sunnyClouds.svg" alt="temperature day icon">
+        <p class="day__temp">32°
+          <span class="day__temp__small">29°</span>
+        </p>
+      </div>
+
     </div>
   </div>
 
-  <div id="temperature-map">
-    <div id="temperature-map__list"></div>
-    <div id="temperature-map__map-container"></div>
+  <div id="temperature-map" class="square">
+    <div id="temperature-map__list">
+      <select id="temperature-map__list__select">
+        <option value="0">Vlaznost vazduha</option>
+        <option value="1">Pritisak</option>
+        <option value="2">Vetar</option>
+      </select>
+    </div>
+    <div id="temperature-map__map-container">
+      <div id="temperature-map__map-container__map">
+        <img src="map/map.jpg" alt="weather conditions map">
+      </div>
+    </div>
   </div>
 
-  <div id="pollution-map">
-    <div id="pollution-map__title"></div>
-    <div id="pollution-map__description"></div>
-    <div id="pollution-map__map-container"></div>
+  <div id="pollution-map__title">
+    <h2>Zagadjenje vazduha</h2>
+  </div>
+
+  <div id="pollution-map__description" class="square">
+    <div><p class="pollutionText">0 - 50</p></div>
+    <div><p class="pollutionText">Good</p></div>
+    <div><p class="pollutionText">Air quality is considered satisfactory, and air pollution poses little or no risk</p></div>
+    <div><p class="pollutionText">51 -100</p></div>
+    <div><p class="pollutionText">Moderate</p></div>
+    <div><p class="pollutionText">Air quality is acceptable; however, for some pollutants there may be a moderate health concern for a very
+      small number of people.</p></div>
+    <div><p class="pollutionText">101-150</p></div>
+    <div><p class="pollutionText">Unhealthy for Sensitive Groups</p></div>
+    <div><p class="pollutionText">Members of sensitive groups may experience health effects. The general public is not likely to be affected.</p></div>
+    <div><p class="pollutionText">151-200</p></div>
+    <div><p class="pollutionText">Unhealthy</p></div>
+    <div><p class="pollutionText">Everyone may begin to experience health effects; members of sensitive groups may experience more serious health effects</p></div>
+    <div><p class="pollutionText">201-300</p></div>
+    <div><p class="pollutionText">Very Unhealthy</p></div>
+    <div><p class="pollutionText">Health warnings of emergency conditions. The entire population is more likely to be affected.</p></div>
+    <div><p class="pollutionText">300+</p></div>
+    <div><p class="pollutionText">Hazardous</p></div>
+    <div><p class="pollutionText">Health alert: everyone may experience more serious health effects</p></div>
+  </div>
+
+  <div id="pollution-map__map-container" class="square">
+    <div id="pollution-map__map-container__map">
+      <img src="map/map.jpg" alt="pollution conditions map">
+    </div>
   </div>
 
 </div>

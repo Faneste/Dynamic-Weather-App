@@ -4,28 +4,341 @@ html {
 
 body {
   padding: 0;
+  padding-top: 30px;
   margin: 0;
-  background-image: url("backgroundImage.jpg");
+  height: 2000px;
+  /* background-image: url("backgroundImage.jpg"); */
   background-position: center;
-  background-color: var(--darkGray);
+  font-family: 'Source Sans Pro', sans-serif;
+  background-image: url("background/clouds.svg"), url("background/stars.svg"), linear-gradient(#2c2e45, #525d75);
+  background-position: top, top, top;
+  background-repeat: no-repeat, no-repeat, repeat;
 }
 
 /* colors */
 :root {
+  /* colors */
   --darkGray: #1a1a1a;
+  --lightGray: #6e6d6d;
   --white: #ffffff;
+  --transparentWhite: rgba(255, 255, 255, 0.81);
   --cream: #f6eedf;
   --orange: #f57b51;
   --red: #d63447;
   --yellow: #ffd31d;
+  /* font sizes */
+  --tempBig: 6em;
+  --large: 1.5em;
+  --medium: 1em;
+  --small: 0.6em;
 }
 
+#main-container {
+  width: 1010px;
+  height: auto;
+  margin: 0px auto;
+  /* background-color: red; */
+  /* grid */
+  display: grid;
+  grid-template-columns: 500px 500px;
+  grid-template-rows: 500px 40px 500px;
+  grid-template-areas:
+  "temperature temperature-map"
+  "pollution-map__title pollution-map__title"
+  "pollution-map__description pollution-map__map-container";
+  grid-gap: 10px 10px;
+}
 
+.square {
+  /* width: 100%;
+  height: 100%;
+  background-color: blue; */
+}
 
+/* /////////// temperature /////////// */
+#temperature {
+  /* grid */
+  grid-area: temperature;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 40px 210px 125px 125px;
+  grid-template-areas:
+  "citySelect citySelect"
+  "tempIcon tempInfo"
+  "tempNumber tempInfo"
+  "tempDays tempDays";
+}
 
+#temperature__city {
+  /* grid */
+  grid-area: citySelect;
+}
 
+#temperature__city__select {
+  width: 100%;
+  height: 100%;
+  font-size: var(--large);
+  text-align: center;
+  border: none;
+}
 
+#temperature__big-icon {
+  /* grid */
+  display: grid;
+  grid-area: tempIcon;
+  align-items: center;
+  justify-items: center;
 
+  width: 100%;
+  height: 100%;
+  background: var(--transparentWhite);
+  border-width: 0px 2px 2px 0px;
+  border-style: solid;
+  border-color: var(--white);
+}
+
+#temperature__big-number {
+  /* grid */
+  display: grid;
+  grid-area: tempNumber;
+  align-items: center;
+  justify-items: center;
+
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: var(--transparentWhite);
+  border-width: 0px 2px 0px 0px;
+  border-style: solid;
+  border-color: var(--white);
+}
+
+#celsiusButton, #fahrenheitButton {
+  width: 50px;
+  height: 49%;
+  position: absolute;
+  top: 2px;
+  right: 0px;
+  border: none;
+  background-color: var(--cream);
+  font-size: var(--medium);
+  color: var(--red);
+  cursor: pointer;
+}
+
+#fahrenheitButton {
+  margin-top: 24%;
+  border-width: 2px 0px 0px 0px;
+  border-style: solid;
+  border-color: var(--white);
+}
+
+#temperature__big-number h1 {
+  font-size: var(--tempBig);
+  color: var(--red);
+  margin: 0px;
+  padding: 0px;
+}
+
+#temperature__info {
+  /* grid */
+  grid-area: tempInfo;
+
+  background: var(--transparentWhite);
+}
+
+#temperature__info p {
+  font-size: var(--large);
+  margin: 10px 0px 0px 20px;
+  color: var(--red);
+}
+
+#temperature__info p span {
+  color: var(--darkGray);
+}
+
+#temperature__days {
+  /* grid */
+  display: grid;
+  grid-area: tempDays;
+  /* justify-content: center;
+  align-items: center; */
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-areas:
+  "mon tue wed thu fri sat sun";
+
+  background-color: var(--white);
+}
+
+#temperature__days div {
+  border-width: 0px 2px 0px 0px;
+  border-style: solid;
+  border-color: var(--red);
+}
+
+#temperature__days div:last-child {
+  border: none;
+}
+
+#temperature__days h3 {
+  font-size: var(--large);
+  margin: 0px 0px 0px 0px;
+  text-align: center;
+  background-color: var(--red);
+  color: var(--white);
+}
+
+#temperature__days img {
+  width: 50px;
+  /* margin: 0px auto; */
+  margin: 0px 0px 0px 10px;
+}
+
+#temperature__days p {
+  text-align: center;
+  font-size: var(--large);
+  margin: 0px 0px 0px 0px;
+}
+
+.day__temp__small {
+  font-size: var(--small);
+  color: var(--lightGray);
+}
+
+/* /////////// temperature-map /////////// */
+#temperature-map {
+  /* grid */
+  grid-area: temperature-map;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 40px 1fr;
+  grid-template-areas:
+  "tempSelect tempSelect"
+  "tempMap tempMap";
+}
+
+#temperature-map__list {
+  /* grid */
+  grid-area: tempSelect;
+}
+
+#temperature-map__list__select {
+  width: 100%;
+  height: 100%;
+  font-size: var(--large);
+  text-align: center;
+  border: none;
+}
+
+#temperature-map__map-container {
+  /* grid */
+  grid-area: tempMap;
+
+  background: var(--transparentWhite);
+  padding: 20px;
+  overflow: hidden;
+}
+
+#temperature-map__map-container__map {
+  width: 100%;
+  height: 100%;
+  background-color: green;
+  overflow: hidden;
+}
+
+#temperature-map__map-container__map img {
+
+}
+
+/* /////////// pollution-map__title /////////// */
+#pollution-map__title {
+  height: 100%;
+  width: 100%;
+  background-color: var(--white);
+  /* grid */
+  grid-area: pollution-map__title;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+}
+
+#pollution-map__title h2 {
+  margin: 0;
+  font-size: var(--large);
+  font-weight: 400;
+}
+
+/* /////////// pollution-map__description /////////// */
+#pollution-map__description {
+  /* grid */
+  grid-area: pollution-map__description;
+  display: grid;
+  grid-template-columns: 2fr 2fr 7fr;
+  grid-template-rows: auto auto auto auto auto auto;
+}
+
+.pollutionText {
+  margin-left: 5px;
+}
+
+/* warning text changing colors */
+#pollution-map__description div {
+  width: 100%;
+  height: 100%;
+  color: var(--white);
+  box-sizing:border-box;
+}
+#pollution-map__description div:nth-child(1),#pollution-map__description div:nth-child(2),
+#pollution-map__description div:nth-child(3) {
+  background-color: #009966;
+}
+#pollution-map__description div:nth-child(4),#pollution-map__description div:nth-child(5),
+#pollution-map__description div:nth-child(6) {
+  background-color: #ffde33;
+}
+#pollution-map__description div:nth-child(7),#pollution-map__description div:nth-child(8),
+#pollution-map__description div:nth-child(9) {
+  background-color: #ff9933;
+}
+#pollution-map__description div:nth-child(10),#pollution-map__description div:nth-child(11),
+#pollution-map__description div:nth-child(12) {
+  background-color: #cc0033;
+}
+#pollution-map__description div:nth-child(13),#pollution-map__description div:nth-child(14),
+#pollution-map__description div:nth-child(15) {
+  background-color: #660099;
+}
+#pollution-map__description div:nth-child(16),#pollution-map__description div:nth-child(17),
+#pollution-map__description div:nth-child(18) {
+  background-color: #7e0023;
+}
+/* white border */
+#pollution-map__description div:nth-child(2),#pollution-map__description div:nth-child(3),
+#pollution-map__description div:nth-child(5),#pollution-map__description div:nth-child(6),
+#pollution-map__description div:nth-child(8),#pollution-map__description div:nth-child(9),
+#pollution-map__description div:nth-child(11),#pollution-map__description div:nth-child(12),
+#pollution-map__description div:nth-child(14),#pollution-map__description div:nth-child(15),
+#pollution-map__description div:nth-child(17),#pollution-map__description div:nth-child(18) {
+  border-left: 2px solid white;
+}
+
+/* /////////// pollution-map__map-container /////////// */
+#pollution-map__map-container {
+  grid-area: pollution-map__map-container;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+
+  background: var(--transparentWhite);
+  padding: 20px;
+  overflow: hidden;
+}
+
+#pollution-map__map-container__map {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
 
 
 
