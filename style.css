@@ -113,7 +113,7 @@ body {
   border-color: var(--white);
 }
 
-#celsiusButton, #fahrenheitButton {
+#metric, #imperial {
   width: 50px;
   height: 49%;
   position: absolute;
@@ -122,15 +122,19 @@ body {
   border: none;
   background-color: var(--cream);
   font-size: var(--medium);
-  color: var(--red);
+  /* color: var(--red); */
   cursor: pointer;
 }
 
-#fahrenheitButton {
+#imperial {
   margin-top: 24%;
   border-width: 2px 0px 0px 0px;
   border-style: solid;
   border-color: var(--white);
+}
+
+.unitButtonToggle {
+  background-color: var(--red)!important;
 }
 
 #temperature__big-number h1 {
@@ -148,13 +152,14 @@ body {
 }
 
 #temperature__info p {
-  font-size: var(--large);
+  font-size: var(--medium);
   margin: 10px 0px 0px 20px;
   color: var(--red);
 }
 
 #temperature__info p span {
   color: var(--darkGray);
+  font-size: var(--large);
 }
 
 #temperature__days {
@@ -170,13 +175,13 @@ body {
   background-color: var(--white);
 }
 
-#temperature__days div {
+#temperature__days section {
   border-width: 0px 2px 0px 0px;
   border-style: solid;
   border-color: var(--red);
 }
 
-#temperature__days div:last-child {
+#temperature__days section:last-child {
   border: none;
 }
 
@@ -282,43 +287,43 @@ body {
 }
 
 /* warning text changing colors */
-#pollution-map__description div {
+#pollution-map__description section {
   width: 100%;
   height: 100%;
   color: var(--white);
   box-sizing:border-box;
 }
-#pollution-map__description div:nth-child(1),#pollution-map__description div:nth-child(2),
-#pollution-map__description div:nth-child(3) {
+#pollution-map__description section:nth-child(1),#pollution-map__description section:nth-child(2),
+#pollution-map__description section:nth-child(3) {
   background-color: #009966;
 }
-#pollution-map__description div:nth-child(4),#pollution-map__description div:nth-child(5),
-#pollution-map__description div:nth-child(6) {
+#pollution-map__description section:nth-child(4),#pollution-map__description section:nth-child(5),
+#pollution-map__description section:nth-child(6) {
   background-color: #ffde33;
 }
-#pollution-map__description div:nth-child(7),#pollution-map__description div:nth-child(8),
-#pollution-map__description div:nth-child(9) {
+#pollution-map__description section:nth-child(7),#pollution-map__description section:nth-child(8),
+#pollution-map__description section:nth-child(9) {
   background-color: #ff9933;
 }
-#pollution-map__description div:nth-child(10),#pollution-map__description div:nth-child(11),
-#pollution-map__description div:nth-child(12) {
+#pollution-map__description section:nth-child(10),#pollution-map__description section:nth-child(11),
+#pollution-map__description section:nth-child(12) {
   background-color: #cc0033;
 }
-#pollution-map__description div:nth-child(13),#pollution-map__description div:nth-child(14),
-#pollution-map__description div:nth-child(15) {
+#pollution-map__description section:nth-child(13),#pollution-map__description section:nth-child(14),
+#pollution-map__description section:nth-child(15) {
   background-color: #660099;
 }
-#pollution-map__description div:nth-child(16),#pollution-map__description div:nth-child(17),
-#pollution-map__description div:nth-child(18) {
+#pollution-map__description section:nth-child(16),#pollution-map__description section:nth-child(17),
+#pollution-map__description section:nth-child(18) {
   background-color: #7e0023;
 }
 /* white border */
-#pollution-map__description div:nth-child(2),#pollution-map__description div:nth-child(3),
-#pollution-map__description div:nth-child(5),#pollution-map__description div:nth-child(6),
-#pollution-map__description div:nth-child(8),#pollution-map__description div:nth-child(9),
-#pollution-map__description div:nth-child(11),#pollution-map__description div:nth-child(12),
-#pollution-map__description div:nth-child(14),#pollution-map__description div:nth-child(15),
-#pollution-map__description div:nth-child(17),#pollution-map__description div:nth-child(18) {
+#pollution-map__description section:nth-child(2),#pollution-map__description section:nth-child(3),
+#pollution-map__description section:nth-child(5),#pollution-map__description section:nth-child(6),
+#pollution-map__description section:nth-child(8),#pollution-map__description section:nth-child(9),
+#pollution-map__description section:nth-child(11),#pollution-map__description section:nth-child(12),
+#pollution-map__description section:nth-child(14),#pollution-map__description section:nth-child(15),
+#pollution-map__description section:nth-child(17),#pollution-map__description section:nth-child(18) {
   border-left: 2px solid white;
 }
 

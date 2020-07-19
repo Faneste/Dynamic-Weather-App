@@ -1,0 +1,24 @@
+@media only screen and (max-width: 1000px) {
+  #main-container {
+    width: 100%;
+    height: auto;
+    /* margin: 0px auto; */
+    /* grid */
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 500px 500px 40px 500px 500px;
+    grid-template-areas:
+    "temperature"
+    "temperature-map"
+    "pollution-map__title"
+    "pollution-map__map-container"
+    "pollution-map__description";
+    grid-gap: 10px 10px;
+  }
+  #celsiusButton, #fahrenheitButton {
+    left: 0px;
+  }
+  #fahrenheitButton {
+    margin-top: 61px;
+  }
+}

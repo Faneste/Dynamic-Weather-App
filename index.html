@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link href="style.css" rel="stylesheet">
+  <link href="mobilestyle.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap" rel="stylesheet">
   <title>Weather App</title>
 </head>
@@ -16,9 +17,9 @@
 
     <div id="temperature__city">
       <select id="temperature__city__select">
-        <option value="0">Beograd</option>
-        <option value="1">Kragujevac</option>
-        <option value="2">Novi Sad</option>
+        <option value="792680">Beograd</option>
+        <option value="789128">Kragujevac</option>
+        <option value="789107">Kraljevo</option>
       </select>
     </div>
 
@@ -27,81 +28,80 @@
     </div>
 
     <div id="temperature__big-number">
-      <h1>36°</h1>
-      <button id="celsiusButton">°C</button>
-      <button id="fahrenheitButton">°F</button>
+      <h1 id="temperature__big-number__temp">0°</h1>
+      <button value="metric" class="unitsButton" id="metric">°C</button>
+      <button value="imperial" class="unitsButton" id="imperial">°F</button>
     </div>
 
     <div id="temperature__info">
       <p>
-        maximum temp:<span class="temperature__info__span">23°</span><br>
-        minimum temp:<span class="temperature__info__span">16°</span><br>
-        feels like:<span class="temperature__info__span">22.22°</span><br>
-        humidity:<span class="temperature__info__span">50</span><br>
-        pressure:<span class="temperature__info__span">1006</span><br>
-        wind:<span class="temperature__info__span">32</span><br>
-        deg:<span class="temperature__info__span">27</span><br>
-        speed:<span class="temperature__info__span">5.7</span>
+        maksimalna temp:<span id="tempMax" class="temperature__info__span"> 0</span><br>
+        minimalna temp:<span id="tempMin" class="temperature__info__span"> 0</span><br>
+        oseća se kao:<span id="feelsLike" class="temperature__info__span"> 0</span><br>
+        vlažnost:<span id="humidity" class="temperature__info__span"> 0</span><br>
+        pritisak:<span id="pressure" class="temperature__info__span"> 0</span><br>
+        stepen vetra:<span id="windDeg" class="temperature__info__span"> 0</span><br>
+        brzina vetra:<span id="windSpeed" class="temperature__info__span"> 0</span>
       </p>
     </div>
 
     <div id="temperature__days">
 
-      <div id="temperature__days_mon">
+      <section id="temperature__days_mon">
         <h3 class="day-name">pon</h3>
         <img class="day__image" src="icons/sunnyClouds.svg" alt="temperature day icon">
-        <p class="day__temp">32°
-          <span class="day__temp__small">29°</span>
+        <p id="tempMonMax" class="day__temp">0°
+          <span id="tempMonLow" class="day__temp__small">0°</span>
         </p>
-      </div>
+      </section>
 
-      <div id="temperature__days_tue">
+      <section id="temperature__days_tue">
         <h3 class="day-name">uto</h3>
         <img class="day__image" src="icons/sunnyClouds.svg" alt="temperature day icon">
-        <p class="day__temp">32°
-          <span class="day__temp__small">29°</span>
+        <p id="tempTueMax" class="day__temp">0°
+          <span id="tempTueLow" class="day__temp__small">0°</span>
         </p>
-      </div>
+      </section>
 
-      <div id="temperature__days_wed">
+      <section id="temperature__days_wed">
         <h3 class="day-name">sre</h3>
         <img class="day__image" src="icons/sunnyClouds.svg" alt="temperature day icon">
-        <p class="day__temp">32°
-          <span class="day__temp__small">29°</span>
+        <p id="tempWedMax" class="day__temp">0°
+          <span id="tempWedLow" class="day__temp__small">0°</span>
         </p>
-      </div>
+      </section>
 
-      <div id="temperature__days_thu">
+      <section id="temperature__days_thu">
         <h3 class="day-name">čet</h3>
         <img class="day__image" src="icons/sunnyClouds.svg" alt="temperature day icon">
-        <p class="day__temp">32°
-          <span class="day__temp__small">29°</span>
+        <p id="tempThuMax" class="day__temp">0°
+          <span id="tempThuLow" class="day__temp__small">0°</span>
         </p>
-      </div>
+      </section>
 
-      <div id="temperature__days_fri">
+      <section id="temperature__days_fri">
         <h3 class="day-name">pet</h3>
         <img class="day__image" src="icons/sunnyClouds.svg" alt="temperature day icon">
-        <p class="day__temp">32°
-          <span class="day__temp__small">29°</span>
+        <p id="tempFriMax" class="day__temp">0°
+          <span id="tempFriLow" class="day__temp__small">0°</span>
         </p>
-      </div>
+      </section>
 
-      <div id="temperature__days_sat">
+      <section id="temperature__days_sat">
         <h3 class="day-name">sub</h3>
         <img class="day__image" src="icons/sunnyClouds.svg" alt="temperature day icon">
-        <p class="day__temp">32°
-          <span class="day__temp__small">29°</span>
+        <p id="tempSatMax" class="day__temp">0°
+          <span id="tempSatLow" class="day__temp__small">0°</span>
         </p>
-      </div>
+      </section>
 
-      <div id="temperature__days_sun">
+      <section id="temperature__days_sun">
         <h3 class="day-name">ned</h3>
         <img class="day__image" src="icons/sunnyClouds.svg" alt="temperature day icon">
-        <p class="day__temp">32°
-          <span class="day__temp__small">29°</span>
+        <p id="tempSunMax" class="day__temp">0°
+          <span id="tempSunLow" class="day__temp__small">0°</span>
         </p>
-      </div>
+      </section>
 
     </div>
   </div>
@@ -125,27 +125,27 @@
     <h2>Zagadjenje vazduha</h2>
   </div>
 
-  <div id="pollution-map__description" class="square">
-    <div><p class="pollutionText">0 - 50</p></div>
-    <div><p class="pollutionText">Good</p></div>
-    <div><p class="pollutionText">Air quality is considered satisfactory, and air pollution poses little or no risk</p></div>
-    <div><p class="pollutionText">51 -100</p></div>
-    <div><p class="pollutionText">Moderate</p></div>
-    <div><p class="pollutionText">Air quality is acceptable; however, for some pollutants there may be a moderate health concern for a very
-      small number of people.</p></div>
-    <div><p class="pollutionText">101-150</p></div>
-    <div><p class="pollutionText">Unhealthy for Sensitive Groups</p></div>
-    <div><p class="pollutionText">Members of sensitive groups may experience health effects. The general public is not likely to be affected.</p></div>
-    <div><p class="pollutionText">151-200</p></div>
-    <div><p class="pollutionText">Unhealthy</p></div>
-    <div><p class="pollutionText">Everyone may begin to experience health effects; members of sensitive groups may experience more serious health effects</p></div>
-    <div><p class="pollutionText">201-300</p></div>
-    <div><p class="pollutionText">Very Unhealthy</p></div>
-    <div><p class="pollutionText">Health warnings of emergency conditions. The entire population is more likely to be affected.</p></div>
-    <div><p class="pollutionText">300+</p></div>
-    <div><p class="pollutionText">Hazardous</p></div>
-    <div><p class="pollutionText">Health alert: everyone may experience more serious health effects</p></div>
-  </div>
+  <article id="pollution-map__description" class="square">
+    <section><p class="pollutionText">0 - 50</p></section>
+    <section><p class="pollutionText">Good</p></section>
+    <section><p class="pollutionText">Air quality is considered satisfactory, and air pollution poses little or no risk</p></section>
+    <section><p class="pollutionText">51 -100</p></section>
+    <section><p class="pollutionText">Moderate</p></section>
+    <section><p class="pollutionText">Air quality is acceptable; however, for some pollutants there may be a moderate health concern for a very
+      small number of people.</p></section>
+    <section><p class="pollutionText">101-150</p></section>
+    <section><p class="pollutionText">Unhealthy for Sensitive Groups</p></section>
+    <section><p class="pollutionText">Members of sensitive groups may experience health effects. The general public is not likely to be affected.</p></section>
+    <section><p class="pollutionText">151-200</p></section>
+    <section><p class="pollutionText">Unhealthy</p></section>
+    <section><p class="pollutionText">Everyone may begin to experience health effects; members of sensitive groups may experience more serious health effects</p></section>
+    <section><p class="pollutionText">201-300</p></section>
+    <section><p class="pollutionText">Very Unhealthy</p></section>
+    <section><p class="pollutionText">Health warnings of emergency conditions. The entire population is more likely to be affected.</p></section>
+    <section><p class="pollutionText">300+</p></section>
+    <section><p class="pollutionText">Hazardous</p></section>
+    <section><p class="pollutionText">Health alert: everyone may experience more serious health effects</p></section>
+  </article>
 
   <div id="pollution-map__map-container" class="square">
     <div id="pollution-map__map-container__map">
