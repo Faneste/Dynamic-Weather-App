@@ -179,6 +179,7 @@ body {
   border-width: 0px 2px 0px 0px;
   border-style: solid;
   border-color: var(--red);
+  text-align: center;
 }
 
 #temperature__days section:last-child {
@@ -196,7 +197,7 @@ body {
 #temperature__days img {
   width: 50px;
   /* margin: 0px auto; */
-  margin: 0px 0px 0px 10px;
+  margin: 8px 0px 0px 0px;
 }
 
 #temperature__days p {
