@@ -7,6 +7,12 @@
   <link href="style.css" rel="stylesheet">
   <link href="mobilestyle.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+   integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+   crossorigin=""/>
+   <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+  integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+  crossorigin=""></script>
   <title>Weather App</title>
 </head>
 <body>
@@ -86,7 +92,6 @@
     </div>
     <div id="temperature-map__map-container">
       <div id="temperature-map__map-container__map">
-        <img src="map/map.jpg" alt="weather conditions map">
       </div>
     </div>
   </div>
@@ -97,36 +102,33 @@
 
   <article id="pollution-map__description" class="square">
     <section><p class="pollutionText">0 - 50</p></section>
-    <section><p class="pollutionText">Good</p></section>
-    <section><p class="pollutionText">Air quality is considered satisfactory, and air pollution poses little or no risk</p></section>
+    <section><p class="pollutionText">Dobar</p></section>
+    <section><p class="pollutionText">Kvalitet vazduha je zadovoljavajući, i zagadjenje vazduha ima mali ili nepostojeći rizik</p></section>
     <section><p class="pollutionText">51 -100</p></section>
-    <section><p class="pollutionText">Moderate</p></section>
-    <section><p class="pollutionText">Air quality is acceptable; however, for some pollutants there may be a moderate health concern for a very
-      small number of people.</p></section>
+    <section><p class="pollutionText">Srednji</p></section>
+    <section><p class="pollutionText">Kvalitet vazduha je zadovoljavajući; medjutim, neki polutanti mogu predstavljati problem za mali broj ljudi.</p></section>
     <section><p class="pollutionText">101-150</p></section>
-    <section><p class="pollutionText">Unhealthy for Sensitive Groups</p></section>
-    <section><p class="pollutionText">Members of sensitive groups may experience health effects. The general public is not likely to be affected.</p></section>
+    <section><p class="pollutionText">Nezdravo za senzitivne grupe ljudi.</p></section>
+    <section><p class="pollutionText">Ljudi u senzitivnim grupama mogu imati probleme, medjutim za generalnu javnost ne postoji rizik.</p></section>
     <section><p class="pollutionText">151-200</p></section>
-    <section><p class="pollutionText">Unhealthy</p></section>
-    <section><p class="pollutionText">Everyone may begin to experience health effects; members of sensitive groups may experience more serious health effects</p></section>
+    <section><p class="pollutionText">Nezdravo</p></section>
+    <section><p class="pollutionText">Svi mogu iskusiti zdrastvene tegobe, ljudi iz senzitivnih grupa mogu iskusiti ozbiljnije tegobe.</p></section>
     <section><p class="pollutionText">201-300</p></section>
-    <section><p class="pollutionText">Very Unhealthy</p></section>
-    <section><p class="pollutionText">Health warnings of emergency conditions. The entire population is more likely to be affected.</p></section>
+    <section><p class="pollutionText">Veome nezdravo</p></section>
+    <section><p class="pollutionText">Zdravstveni alarm, čitava populacija može iskusiti zdravstvene tegobe.</p></section>
     <section><p class="pollutionText">300+</p></section>
-    <section><p class="pollutionText">Hazardous</p></section>
-    <section><p class="pollutionText">Health alert: everyone may experience more serious health effects</p></section>
+    <section><p class="pollutionText">Opasno</p></section>
+    <section><p class="pollutionText">Zdravstveni alarm, čitava populacija može iskusiti ozbiljnije zdravstvene tegobe.</p></section>
   </article>
 
   <div id="pollution-map__map-container" class="square">
-    <div id="pollution-map__map-container__map">
-      <img src="map/map.jpg" alt="pollution conditions map">
-    </div>
+    <div id="pollution-map__map-container__map"><!-- leaflet.js --></div>
   </div>
 
 </div>
 
 <!-- script async -->
-
 <script src="js.js"></script>
+<script src="js-helperFunctions.js"></script>
 </body>
 </html>

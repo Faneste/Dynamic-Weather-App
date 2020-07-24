@@ -15,10 +15,10 @@
     "pollution-map__description";
     grid-gap: 10px 10px;
   }
-  #celsiusButton, #fahrenheitButton {
+  #metric, #imperial {
     left: 0px;
   }
-  #fahrenheitButton {
+  #imperial {
     margin-top: 61px;
   }
 }
