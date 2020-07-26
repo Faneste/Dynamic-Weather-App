@@ -1,7 +1,3 @@
-// -ubaci nekoliko gradova
-// -pogledaj historic i data na gov.rs pa ubaci chart.js
-// spoj funkcije za mapu ako moze
-
 const temp = document.getElementById("temperature__big-number__temp");
 let day; let hr; let imageTypeCode;
 
@@ -25,6 +21,13 @@ document.getElementById("temperature__city__select").addEventListener("change", 
     getWeatherDataDay(value);
 });
 
+// weather map select menu
+document.getElementById("temperature-map__list__select").addEventListener("change", function () {
+    const c = document.getElementById("temperature-map__list__select");
+    const value = c.options[c.selectedIndex].value;
+    getMapDataWeather(value);
+});
+
 // metric/imperial units change
 document.querySelectorAll(".unitsButton").forEach(function(elem) {
     elem.addEventListener("click", function(e) {
@@ -40,8 +43,8 @@ document.querySelectorAll(".unitsButton").forEach(function(elem) {
 async function getWeatherDataDay(cityId = "789128", units = "M") {
 
   //////////// loading animation
-  document.getElementById("temperature__big-icon__image").src = "loading.gif";
-  Array.from(document.getElementsByClassName("day__image")).map(elem => { elem.src = "loading.gif"; })
+  document.getElementById("temperature__big-icon__image").src = "images/loading.gif";
+  Array.from(document.getElementsByClassName("day__image")).map(elem => { elem.src = "images/loading.gif"; })
   //////////// get current day
   let jsonObject;
   let jsonObjectFormat;
@@ -71,8 +74,6 @@ async function getWeatherDataDay(cityId = "789128", units = "M") {
     vidljivost: <span class="temperature__info__span">${shortenStr(jsonObjectFormat.data[0].vis, 3)}${changeUnits(units)}</span>
   </p>`;
 
-  // console.log(jsonObjectFormat.data);
-
   // build current week
   let mainImage2 = document.getElementById("temperature__big-icon__image");
   mainImage2.src = `icons/${getImage(jsonObjectFormat2.data[0].weather.code)}`;
@@ -86,7 +87,6 @@ async function getWeatherDataDay(cityId = "789128", units = "M") {
     dayTemp[i].innerHTML = `${shortenStr(jsonObjectFormat2.data[i].temp, 2)}°
       <span class="day__temp__small">${shortenStr(jsonObjectFormat2.data[i].low_temp, 2)}°</span>`;
   };
-  // return jsonObjectFormat;
 }
 
 getWeatherDataDay()
@@ -96,6 +96,28 @@ getWeatherDataDay()
 ////////////////////////////////////////////////
 //////////////////////// get main map data
 ////////////////////////////////////////////////
+
+const map = L.map('temperature-map__map-container__map', {
+    minZoom: 1,
+    maxZoom: 12
+}).setView([44.016521, 21.005859], 7);
+
+function getMapDataWeather(mapType = "visibility") {
+  let CC_DATA_FIELD = mapType;
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+  }).addTo(map);
+
+  L.tileLayer(`https://api.climacell.co/v3/weather/layers/${CC_DATA_FIELD}/now/7/{x}/{y}.png?apikey=${climaCellApiKey}`, {
+      attribution: '&copy; <a href="https://www.climacell.co/weather-api">Powered by ClimaCell</a>',
+  }).addTo(map);
+
+  // console.log(`https://api.climacell.co/v3/weather/layers/${CC_DATA_FIELD}/now/7/{x}/{y}.png?apikey=${climaCellApiKey}`);
+
+}
+getMapDataWeather();
+
 function getMapDataPollution() {
   // pollution map
   const  OSM_URL2  =  'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
@@ -110,28 +132,6 @@ function getMapDataPollution() {
   map2.addLayer(osmLayer2).addLayer(waqiLayer);
 }
 getMapDataPollution();
-
-function getMapDataWeather() {
-  // temperature map
-  const CC_DATA_FIELD = '<your selected data field name here>';
-  const SELECTED_FIELD = 'no2';
-
-  var map = L.map('temperature-map__map-container__map', {
-      minZoom: 1,
-      maxZoom: 12
-  }).setView([44.016521, 21.005859], 7);
-
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-  }).addTo(map);
-
-  L.tileLayer(`https://api.climacell.co/v3/weather/layers/${SELECTED_FIELD}/now/7/44/21.png?apikey=${climaCellApiKey}`, {
-      attribution: '&copy; <a href="https://www.climacell.co/weather-api">Powered by ClimaCell</a>',
-  }).addTo(map);
-
-  // console.log(`https://api.climacell.co/v3/weather/layers/${SELECTED_FIELD}/now/7/44/21.png?apikey=${climaCellApiKey}`);
-}
-getMapDataWeather();
 
 
 

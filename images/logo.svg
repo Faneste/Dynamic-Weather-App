@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="399.96" height="88.325" viewBox="0 0 1200 265">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        font-size: 104.583px;
+        text-anchor: middle;
+      }
+
+      .cls-1 {
+        fill: #a3e3f5;
+        font-family: OPTIBodoniAntiqua-Medium;
+      }
+
+      .cls-2 {
+        fill: #397080;
+        font-family: "Century Gothic";
+        text-transform: uppercase;
+      }
+    </style>
+  </defs>
+  <text id="Weather_-_app" data-name="Weather - app" class="cls-1" transform="translate(597.469 169.947) scale(1.93)"><tspan x="0">Weather - app</tspan></text>
+  <text id="weather_-_air_pollution" data-name="weather - air pollution" class="cls-2" transform="translate(494.479 229.146) scale(0.59)"><tspan x="0">weather - air pollution</tspan></text>
+</svg>

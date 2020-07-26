@@ -17,6 +17,10 @@
 </head>
 <body>
 
+<header>
+  <a href="https://github.com/Faneste/Dynamic-Weather-App" target="_blank"><img src="images/logo.svg" alt="weather app logo"></a>
+</header>
+
 <div id="main-container">
 
   <div id="temperature" class="square">
@@ -24,8 +28,11 @@
     <div id="temperature__city">
       <select id="temperature__city__select">
         <option value="792680">Beograd</option>
+        <option value="3194360">Novi Sad</option>
         <option value="789128">Kragujevac</option>
+        <option value="792078">Čačak</option>
         <option value="789107">Kraljevo</option>
+        <option value="3189595">Subotica</option>
       </select>
     </div>
 
@@ -85,9 +92,10 @@
   <div id="temperature-map" class="square">
     <div id="temperature-map__list">
       <select id="temperature-map__list__select">
-        <option value="0">Vlaznost vazduha</option>
-        <option value="1">Pritisak</option>
-        <option value="2">Vetar</option>
+        <option value="humidity">Vlažnost</option>
+        <option value="visibility">Vidljivost</option>
+        <option value="wind_speed">Brzina vetra</option>
+        <option value="cloud_cover">Količina oblaka</option>
       </select>
     </div>
     <div id="temperature-map__map-container">
@@ -112,7 +120,7 @@
     <section><p class="pollutionText">Ljudi u senzitivnim grupama mogu imati probleme, medjutim za generalnu javnost ne postoji rizik.</p></section>
     <section><p class="pollutionText">151-200</p></section>
     <section><p class="pollutionText">Nezdravo</p></section>
-    <section><p class="pollutionText">Svi mogu iskusiti zdrastvene tegobe, ljudi iz senzitivnih grupa mogu iskusiti ozbiljnije tegobe.</p></section>
+    <section><p class="pollutionText">Svi mogu iskusiti zdravstvene tegobe, senzitivne grupe će iskusiti ozbiljnije tegobe.</p></section>
     <section><p class="pollutionText">201-300</p></section>
     <section><p class="pollutionText">Veome nezdravo</p></section>
     <section><p class="pollutionText">Zdravstveni alarm, čitava populacija može iskusiti zdravstvene tegobe.</p></section>
