@@ -37,12 +37,9 @@ document.querySelectorAll(".unitsButton").forEach(function(elem) {
     });
 });
 
-////////////////////////////////////////////////
 //////////////////////// get main weather data
-////////////////////////////////////////////////
 async function getWeatherDataDay(cityId = "789128", units = "M") {
 
-  //////////// loading animation
   document.getElementById("temperature__big-icon__image").src = "images/loading.gif";
   Array.from(document.getElementsByClassName("day__image")).map(elem => { elem.src = "images/loading.gif"; })
   //////////// get current day
@@ -52,7 +49,7 @@ async function getWeatherDataDay(cityId = "789128", units = "M") {
     jsonObject = await fetch(`https://api.weatherbit.io/v2.0/current?,NC&units=${units}&key=3e81d1090bdd43b8893df1cee86fc34b&city_id=${cityId}`);
     jsonObjectFormat = await jsonObject.json();
   } catch (err) { console.log("greska je " + err); }
-  //////////// get entire week
+  //////////// get current week
   let jsonObject2;
   let jsonObjectFormat2;
   try {
@@ -60,49 +57,49 @@ async function getWeatherDataDay(cityId = "789128", units = "M") {
     jsonObjectFormat2 = await jsonObject2.json();
   } catch (err) { console.log("greska je " + err); }
 
-  // build current day
-  temp.innerHTML = Math.ceil(jsonObjectFormat.data[0].temp);
+  buildDay(jsonObjectFormat, units);
+  buildWeek(jsonObjectFormat2);
+}
+getWeatherDataDay().then().catch(err => err);
+
+async function buildDay(dataDay, units) {
+  const { city_name, clouds, app_temp, rh, pres, wind_cdir, wind_spd, vis } = dataDay.data[0]
+  temp.innerHTML = Math.ceil(dataDay.data[0].temp);
   document.getElementById("temperature__info").innerHTML =
   `<p>
-    grad: <span class="temperature__info__span">${jsonObjectFormat.data[0].city_name}</span><br>
-    pokrivenost oblaka: <span class="temperature__info__span">${jsonObjectFormat.data[0].clouds}%</span><br>
-    oseća se kao: <span class="temperature__info__span">${jsonObjectFormat.data[0].app_temp}°</span><br>
-    vlažnost: <span class="temperature__info__span">${shortenStr(jsonObjectFormat.data[0].rh, 2)}%</span><br>
-    pritisak: <span class="temperature__info__span">${shortenStr(jsonObjectFormat.data[0].pres, 3)}mb</span><br>
-    pravac vetra: <span class="temperature__info__span">${jsonObjectFormat.data[0].wind_cdir}°</span><br>
-    brzina vetra: <span class="temperature__info__span">${shortenStr(jsonObjectFormat.data[0].wind_spd, 3)}${changeUnits(units)}</span>
-    vidljivost: <span class="temperature__info__span">${shortenStr(jsonObjectFormat.data[0].vis, 3)}${changeUnits(units)}</span>
+    grad: <span class="temperature__info__span">${city_name}</span><br>
+    pokrivenost oblaka: <span class="temperature__info__span">${clouds}%</span><br>
+    oseća se kao: <span class="temperature__info__span">${app_temp}°</span><br>
+    vlažnost: <span class="temperature__info__span">${shortenStr(rh, 2)}%</span><br>
+    pritisak: <span class="temperature__info__span">${shortenStr(pres, 3)}mb</span><br>
+    pravac vetra: <span class="temperature__info__span">${wind_cdir}°</span><br>
+    brzina vetra: <span class="temperature__info__span">${shortenStr(wind_spd, 3)}${changeUnits(units)}</span>
+    vidljivost: <span class="temperature__info__span">${shortenStr(vis, 3)}${changeUnits(units)}</span>
   </p>`;
+}
 
-  // build current week
+async function buildWeek(dataWeek) {
   let mainImage2 = document.getElementById("temperature__big-icon__image");
-  mainImage2.src = `icons/${getImage(jsonObjectFormat2.data[0].weather.code)}`;
+  mainImage2.src = `icons/${getImage(dataWeek.data[0].weather.code)}`;
   let dayImage = document.getElementsByClassName("day__image");
   let dayName = document.getElementsByClassName("day-name");
   let dayTemp = document.getElementsByClassName("day__temp");
   for (var i = 0; i < 7; i++) {
-    dayImage[i].src = `icons/${getImage(jsonObjectFormat2.data[i].weather.code)}`;
-    dayImage[i].alt = `${getImage(jsonObjectFormat2.data[i].weather.code)}`;
+    dayImage[i].src = `icons/${getImage(dataWeek.data[i].weather.code)}`;
+    dayImage[i].alt = `${getImage(dataWeek.data[i].weather.code)}`;
     dayName[i].innerHTML = `${getDay(i)}`;
-    dayTemp[i].innerHTML = `${shortenStr(jsonObjectFormat2.data[i].temp, 2)}°
-      <span class="day__temp__small">${shortenStr(jsonObjectFormat2.data[i].low_temp, 2)}°</span>`;
+    dayTemp[i].innerHTML = `${shortenStr(dataWeek.data[i].temp, 2)}°
+      <span class="day__temp__small">${shortenStr(dataWeek.data[i].low_temp, 2)}°</span>`;
   };
 }
 
-getWeatherDataDay()
-.then()
-.catch(err => err);
-
-////////////////////////////////////////////////
 //////////////////////// get main map data
-////////////////////////////////////////////////
-
 const map = L.map('temperature-map__map-container__map', {
     minZoom: 1,
     maxZoom: 12
 }).setView([44.016521, 21.005859], 7);
 
-function getMapDataWeather(mapType = "visibility") {
+async function getMapDataWeather(mapType = "visibility") {
   let CC_DATA_FIELD = mapType;
 
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -112,14 +109,10 @@ function getMapDataWeather(mapType = "visibility") {
   L.tileLayer(`https://api.climacell.co/v3/weather/layers/${CC_DATA_FIELD}/now/7/{x}/{y}.png?apikey=${climaCellApiKey}`, {
       attribution: '&copy; <a href="https://www.climacell.co/weather-api">Powered by ClimaCell</a>',
   }).addTo(map);
-
-  // console.log(`https://api.climacell.co/v3/weather/layers/${CC_DATA_FIELD}/now/7/{x}/{y}.png?apikey=${climaCellApiKey}`);
-
 }
 getMapDataWeather();
 
-function getMapDataPollution() {
-  // pollution map
+async function getMapDataPollution() {
   const  OSM_URL2  =  'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
   const  OSM_ATTRIB2  =  '&copy;  <a  href="http://openstreetmap.org/copyright">OpenStreetMap</a>  contributors';
   const  osmLayer2  =  L.tileLayer(OSM_URL2,  {attribution:  OSM_ATTRIB2});
