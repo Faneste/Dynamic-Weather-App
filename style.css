@@ -30,15 +30,12 @@ body {
   --large: 1.5em;
   --medium: 1em;
   --small: 0.6em;
-  /* theme background */
-  /* --backgroundTheme: url("background/clouds.svg"), url("background/stars.svg"), linear-gradient(#2c2e45, #525d75); */
 }
 
 #main-container {
   width: 1010px;
   height: auto;
   margin: 0px auto;
-  /* background-color: red; */
   /* grid */
   display: grid;
   grid-template-columns: 500px 500px;
@@ -51,9 +48,7 @@ body {
 }
 
 .square {
-  /* width: 100%;
-  height: 100%;
-  background-color: blue; */
+
 }
 
 /* /////////// temperature /////////// */
@@ -137,7 +132,6 @@ header img {
   border: none;
   background-color: var(--cream);
   font-size: var(--medium);
-  /* color: var(--red); */
   cursor: pointer;
 }
 
@@ -181,8 +175,6 @@ header img {
   /* grid */
   display: grid;
   grid-area: tempDays;
-  /* justify-content: center;
-  align-items: center; */
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-areas:
   "mon tue wed thu fri sat sun";
@@ -211,7 +203,6 @@ header img {
 
 #temperature__days img {
   width: 50px;
-  /* margin: 0px auto; */
   margin: 8px 0px 0px 0px;
 }
 
@@ -263,7 +254,6 @@ header img {
 #temperature-map__map-container__map {
   width: 100%;
   height: 100%;
-  /* background-color: green; */
   overflow: hidden;
 }
 
@@ -358,28 +348,5 @@ header img {
   height: 100%;
   overflow: hidden;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /*  */
