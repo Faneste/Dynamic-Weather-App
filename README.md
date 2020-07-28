@@ -22,4 +22,4 @@ Made using vanilla Javascript with the help of [leaflet](https://leafletjs.com/)
 
 It also uses weather icons from [freepik](https://www.freepik.com/free-vector/sun-activity-weather-forecast_3824009.htm#page=5&query=weather&position=7).
 
-Non-responsive website example [Link](http://todolistwebsite.epizy.com/).
+Non-responsive website example [Link](http://dynamic-weather-app.epizy.com/).
